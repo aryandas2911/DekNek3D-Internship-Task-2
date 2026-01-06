@@ -47,7 +47,7 @@ function App() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "72px 24px",
+        padding: "64px 16px",
       }}
     >
       {/* Hero */}
@@ -64,8 +64,8 @@ function App() {
 
         <h1
           style={{
-            marginTop: "48px",
-            fontSize: "42px",
+            marginTop: "40px",
+            fontSize: "clamp(28px, 6vw, 42px)",
             fontWeight: 700,
             letterSpacing: "-0.02em",
             textAlign: "center",
@@ -86,8 +86,9 @@ function App() {
           style={{
             marginTop: "14px",
             maxWidth: "520px",
+            padding: "0 8px",
             textAlign: "center",
-            fontSize: "15px",
+            fontSize: "clamp(14px, 3.5vw, 15px)",
             lineHeight: 1.6,
             opacity: 0.65,
           }}
@@ -100,13 +101,16 @@ function App() {
       {/* Prompt box */}
       <div
         style={{
-          marginTop: "44px",
-          padding: "18px",
+          marginTop: "36px",
+          width: "100%",
+          maxWidth: "560px",
+          padding: "16px",
           borderRadius: "18px",
           background: "rgba(20,20,20,0.8)",
           border: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
-          gap: "14px",
+          flexWrap: "wrap",
+          gap: "12px",
           boxShadow:
             "0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)",
         }}
@@ -116,7 +120,7 @@ function App() {
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Describe your imagination…"
           style={{
-            width: "420px",
+            flex: "1 1 260px",
             padding: "14px 16px",
             borderRadius: "12px",
             border: "1px solid rgba(255,255,255,0.08)",
@@ -124,12 +128,14 @@ function App() {
             color: "#fff",
             fontSize: "14px",
             outline: "none",
+            minWidth: "0",
           }}
         />
 
         <button
           onClick={generateImage}
           style={{
+            flex: "0 0 auto",
             padding: "14px 28px",
             borderRadius: "12px",
             border: "none",
@@ -138,6 +144,8 @@ function App() {
             letterSpacing: "0.04em",
             cursor: "pointer",
             boxShadow: "0 10px 20px rgba(158,255,0,0.35)",
+            width: "100%",
+            maxWidth: "160px",
           }}
         >
           Generate
@@ -150,8 +158,8 @@ function App() {
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ repeat: Infinity, duration: 1.2 }}
           style={{
-            marginTop: "28px",
-            fontSize: "13px",
+            marginTop: "24px",
+            fontSize: "12px",
             letterSpacing: "0.2em",
             color: "#9EFF00",
           }}
@@ -167,9 +175,11 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           style={{
-            marginTop: "56px",
-            padding: "24px",
-            borderRadius: "24px",
+            marginTop: "48px",
+            width: "100%",
+            maxWidth: "520px",
+            padding: "20px",
+            borderRadius: "22px",
             background: "rgba(18,18,18,0.9)",
             border: "1px solid rgba(255,255,255,0.06)",
             boxShadow: "0 30px 60px rgba(0,0,0,0.7)",
@@ -180,13 +190,14 @@ function App() {
             src={image}
             alt="Generated"
             style={{
-              width: "420px",
-              borderRadius: "18px",
+              width: "100%",
+              maxWidth: "420px",
+              borderRadius: "16px",
               boxShadow: "0 0 60px rgba(158,255,0,0.25)",
             }}
           />
 
-          <div style={{ marginTop: "18px" }}>
+          <div style={{ marginTop: "16px" }}>
             <button
               onClick={downloadImage}
               style={{

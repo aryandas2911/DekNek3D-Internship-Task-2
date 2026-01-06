@@ -5,13 +5,15 @@ export default function TextToImageAnimation() {
     <div
       style={{
         position: "relative",
-        padding: "44px 48px",
+        padding: "clamp(24px, 6vw, 44px)",
         borderRadius: "24px",
         background:
           "radial-gradient(circle at top left, rgba(158,255,0,0.1), transparent 45%), linear-gradient(145deg, #1a1a1a, #0e0e0e)",
         boxShadow:
           "0 28px 56px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.035)",
         overflow: "hidden",
+        maxWidth: "100%",
+        width: "100%",
       }}
     >
       {/* ambient floating glow */}
@@ -34,30 +36,34 @@ export default function TextToImageAnimation() {
       <div
         style={{
           display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
           alignItems: "center",
-          gap: "36px",
+          gap: "clamp(16px, 4vw, 36px)",
           position: "relative",
           zIndex: 2,
+          maxWidth: "100%",
         }}
       >
         {/* TEXT */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           style={{
-            padding: "22px 32px",
-            background:
-              "linear-gradient(180deg, #1f1f1f 0%, #141414 100%)",
+            padding: "clamp(16px, 4vw, 22px) clamp(18px, 6vw, 32px)",
+            background: "linear-gradient(180deg, #1f1f1f 0%, #141414 100%)",
             borderRadius: "18px",
             color: "#9EFF00",
             fontWeight: 600,
             letterSpacing: "0.14em",
-            fontSize: "13px",
+            fontSize: "clamp(11px, 3vw, 13px)",
             textAlign: "center",
             boxShadow:
               "0 14px 26px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05)",
             border: "1px solid rgba(255,255,255,0.08)",
+            maxWidth: "100%",
+            wordBreak: "break-word",
           }}
         >
           TEXT
@@ -75,10 +81,10 @@ export default function TextToImageAnimation() {
 
         {/* ARROW */}
         <motion.div
-          animate={{ x: [0, 12, 0] }}
+          animate={{ x: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
           style={{
-            fontSize: "24px",
+            fontSize: "20px",
             color: "#9EFF00",
             opacity: 0.85,
             filter: "drop-shadow(0 0 8px rgba(158,255,0,0.35))",
@@ -89,21 +95,22 @@ export default function TextToImageAnimation() {
 
         {/* IMAGE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           style={{
-            padding: "22px 32px",
-            background:
-              "linear-gradient(180deg, #c9ff5e 0%, #9eff00 100%)",
+            padding: "clamp(16px, 4vw, 22px) clamp(18px, 6vw, 32px)",
+            background: "linear-gradient(180deg, #c9ff5e 0%, #9eff00 100%)",
             borderRadius: "18px",
             color: "#000",
             fontWeight: 700,
             letterSpacing: "0.14em",
-            fontSize: "13px",
+            fontSize: "clamp(11px, 3vw, 13px)",
             textAlign: "center",
             boxShadow:
               "0 20px 40px rgba(158,255,0,0.4), inset 0 1px 0 rgba(255,255,255,0.6)",
+            maxWidth: "100%",
+            wordBreak: "break-word",
           }}
         >
           IMAGE
@@ -123,7 +130,7 @@ export default function TextToImageAnimation() {
       {/* bottom caption */}
       <div
         style={{
-          marginTop: "24px",
+          marginTop: "clamp(16px, 4vw, 24px)",
           textAlign: "center",
           fontSize: "11px",
           letterSpacing: "0.18em",
