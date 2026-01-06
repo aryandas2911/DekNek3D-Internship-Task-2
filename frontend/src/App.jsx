@@ -11,11 +11,14 @@ function App() {
     setLoading(true);
     setImage("");
 
-    const response = await fetch("http://localhost:5000/generate-image", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt }),
-    });
+    const response = await fetch(
+      "https://text-to-image-generator-backend-twj0.onrender.com/generate-image",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      }
+    );
 
     const data = await response.json();
     setImage(data.image);
